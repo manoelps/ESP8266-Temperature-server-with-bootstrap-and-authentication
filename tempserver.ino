@@ -16,8 +16,8 @@ String Temp, javaScript, XML, bootStrap, login, Home, Omdb, Profile, tijd, tempB
 int uren, minuten, seconden;
 float temperatuur;
 
-const char* ssid = "telenet-69233";
-const char* password = "ZGnUXZchGPWF";
+const char* ssid = "";
+const char* password = "";
 
 ESP8266WebServer server(80);
 
@@ -837,11 +837,11 @@ void handleLogin() {
 }
 
 void formatTempAndDate() {
-  //temperatuur
+  //temperature
   sensors.requestTemperatures();
   temperatuur = sensors.getTempCByIndex(0);
 
-  //datum en uur
+  //date and time
   WiFiClient client;
   while (!!!client.connect("google.com", 80)) {
     Serial.println("connection failed, retrying...");
