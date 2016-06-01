@@ -13,12 +13,12 @@ you can not access the.
 I still have a lot of work and research to do for this project:
 I will try to add the following in the next days/weeks:
 
-add database connection
-add add user functionality
-fill in and watch your profile
-add a chat so when multiple users are on the server you can communicate
-get omdb api working
-make a homepage
-add read HTML from sd-card
+add database connection/
+add add user functionality/
+fill in and watch your profile/
+add a chat so when multiple users are on the server you can communicate/
+get omdb api working/
+make a homepage/
+add read HTML from sd-card/
 get temperature from other ESP8266 modules 
 
