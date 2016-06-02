@@ -17,6 +17,7 @@
 #include <DallasTemperature.h>
 
 #define ONE_WIRE_BUS 4
+#define DEBUG_ESP_HTTP_SERVER true
 
 OneWire oneWire(ONE_WIRE_BUS);
 DallasTemperature sensors(&oneWire);
@@ -27,13 +28,11 @@ const long interval = 10000;
 String Temp, javaScript, XML, bootStrap, addTo, nav1, nav2, nav3, OmdbJquery, login, Home, Omdb, Profile, tijd, tempBuffer, uur, Weather, Buffer, Email, datumTijd, theDate, Head;
 float temperatuur;
 
-//add wifi creds here
-const char* ssid = "";
-const char* password = "";
+const char* ssid = "telenet-69233";
+const char* password = "ZGnUXZchGPWF";
 
 ESP8266WebServer server(80);
 
-//check if cookie is set
 bool is_authentified() {
   if (server.hasHeader("Cookie")) {
     String cookie = server.header("Cookie");
@@ -44,7 +43,6 @@ bool is_authentified() {
   return false;
 }
 
-//little webpage to show the temperatures from the buffer
 void buildbuffer() {
   //Buffer += "";
   Buffer = "<html>";
@@ -359,7 +357,6 @@ void navbar3() {
   nav3 += "  <br><br><br>\n";
 }
 
-//add a working clock to the footer
 void clockString() {
   addTo = "  <script>\n";
   addTo += "    function GetClock(){\n";
@@ -378,7 +375,6 @@ void clockString() {
   addTo += "</script>\n";
 }
 
-//get movie information from omdb
 void OmdbJavascript() {
   OmdbJquery += "<script>\n";
   OmdbJquery += "var $Form = $('form'),$Container = $('#movieInfo');\n";
@@ -447,7 +443,6 @@ void buildJavascript() {
   javaScript += "</script>\n";
 }
 
-//build XML page to pass in the temperature
 void buildXML() {
   XML = "<?xml version='1.0'?>";
   XML += "<Donnees>";
@@ -458,7 +453,6 @@ void buildXML() {
   XML += "</Donnees>";
 }
 
-//handles log in, log out and authentication checks
 void handleLogin() {
   String msg;
   if (server.hasHeader("Cookie")) {
@@ -475,7 +469,6 @@ void handleLogin() {
       server.sendContent(header);
       return;
     }
-    //msg only displayed when credentials are wrong
     msg = "<div class=\"alert alert-danger\">";
     msg += "<a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>";
     msg += "<p class=\"text-center\" >Verkeerde gebruikersnaam of wachtwoord</p>";
@@ -527,7 +520,6 @@ void handleLogin() {
   server.send(200, "text/html", login);
 }
 
-//get temperature and date/time to add to the tempBuffer
 void formatTempAndDate() {
   //temperatuur
   sensors.requestTemperatures();
@@ -619,21 +611,16 @@ void checkAuth() {
 
 void setup(void) {
   Serial.begin(115200);
-  //this led was lit so i turned it off
   digitalWrite(1, 0);
-  //start DS18B20
   sensors.begin();
-  //connect to wifi
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
     Serial.print(".");
   }
   Serial.println("");
-  //print local IP
   Serial.println(WiFi.localIP());
 
-  //page handlers
   server.on("/", handleHome);
   server.on("/temp", handleTemp);
   server.on("/omdb", handleOmdb);
@@ -644,12 +631,10 @@ void setup(void) {
   server.on("/tempbuffer", handleBuffer);
   server.onNotFound(handleNotFound);
 
-  //header setup
   const char * headerkeys[] = {"User-Agent", "Cookie"} ;
   size_t headerkeyssize = sizeof(headerkeys) / sizeof(char*);
   server.collectHeaders(headerkeys, headerkeyssize );
 
-  //start server
   server.begin();
 }
 
