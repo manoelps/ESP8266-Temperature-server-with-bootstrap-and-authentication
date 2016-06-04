@@ -38,8 +38,8 @@ String manageRequest(String request)
 }
 
 
-const char* ssid = "telenet-69233";
-const char* password = "ZGnUXZchGPWF";
+const char* ssid = "";
+const char* password = "";
 
 ESP8266WebServer server(80);
 
