@@ -29,8 +29,8 @@ const long interval = 10000;
 String Temp, javaScript, XML, bootStrap, addTo, nav1, nav2, nav3, OmdbJquery, login, Home, Omdb, Profile, tijd, tempBuffer, uur, Weather, Buffer, Email, datumTijd, theDate, Head;
 float temperatuur;
 
-const char* ssid = "telenet-CC217";
-const char* password = "9Hu4MX3S6821";
+const char* ssid = "";
+const char* password = "";
 
 ESP8266WebServer server(80);
 
