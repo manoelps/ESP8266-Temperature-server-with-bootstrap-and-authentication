@@ -45,7 +45,6 @@ const char temp[] PROGMEM = {"<div class=\"container text-center\">\n <div class
 
 const char* ssid = "";
 const char* password = "";
-//const char* password = "9Hu4MX3S6821";
 
 ESP8266WebServer server(80);
 
