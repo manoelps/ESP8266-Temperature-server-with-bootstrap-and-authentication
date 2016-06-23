@@ -1,0 +1,116 @@
+<html>
+   <head>
+      <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+      <title>Server</title>
+      <link rel='icon' type='image/png' href='https://image.freepik.com/free-icon/ssl-encryption_318-32078.png'>
+      <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' integrity='sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7' crossorigin='anonymous'>
+      <style>
+     .footer {
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          height: 60px;
+          background-color: #f5f5f5;
+      }
+
+      .well {
+          background-color: #99d6ff;
+      }
+
+      .body {
+          background-image: url("http://gfxzone.net/wp-content/uploads/2014/06/main-background1.jpg");
+      }
+      </style>
+      <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js'></script>
+      <script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
+      <script>
+      function GetClock() {
+          var d = new Date();
+          var nmonth = d.getMonth(),
+              ndate = d.getDate(),
+              nyear = d.getYear();
+          if (nyear < 1000) nyear += 1900;
+          var nhour = d.getHours(),
+              nmin = d.getMinutes(),
+              nsec = d.getSeconds();
+          if (nmin <= 9) nmin = '0' + nminif(nsec <= 9) nsec = '0' + nsec;
+          document.getElementById('clockbox').innerHTML = '' + ndate + '/' + (nmonth + 1) + '/' + nyear + ' ' + nhour + ':' + nmin + ':' + nsec + '';
+      }
+      window.onload = function() {
+          GetClock();
+          setInterval(GetClock, 1000);
+      }
+      </script> 
+   </head>
+   <body>
+      <nav class='navbar navbar-inverse navbar-fixed-top'>
+         <div class='container-fluid'>
+            <div class='navbar-header'> <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='#myNavbar'> <span class='icon-bar'></span> <span class='icon-bar'></span> <span class='icon-bar'></span> </button> <a class='navbar-brand' href='#'><span class='glyphicon glyphicon-cloud'></span></a> </div>
+            <div class='collapse navbar-collapse' id='myNavbar'>
+               <ul class='nav navbar-nav'>
+                  <li><a href='/'>Home</a></li>
+                  <li><a href='temp'>Temperatuursoverzicht</a></li>
+                  <li><a href='omdb'>OMDB</a></li>
+                  <li class='active'><a href='weather'>weather</a></li>
+               </ul>
+               <form class='navbar-form navbar-right' role='search'>
+                  <div class='form-group input-group'> <input type='text' class='form-control' placeholder='Search...'> <span class='input-group-btn'> <button class='btn btn-default' type='button'> <span class='glyphicon glyphicon-search'></span> </button> </span> </div>
+               </form>
+               <ul class='nav navbar-nav navbar-right'>
+                  <li><a href='profile'><span class='glyphicon glyphicon-user'></span> My Account</a></li>
+                  <li><a href='/login?disconnect=yes'>Afmelden</a></li>
+               </ul>
+            </div>
+         </div>
+      </nav>
+      <br><br><br> 
+      <div class='container text-center'>
+         <div class='jumbotron'>
+            <h1>Overzicht van de temperaturen</h1>
+            <p>Welkom op de pagina met de verschillende temperaturen!</p>
+         </div>
+         <div class='col-sm-4'>
+            <div class='well'>
+               <h3>Zwijndrecht:</h3>
+               <a href='http://www.accuweather.com/nl/be/zwijndrecht/26971/weather-forecast/26971' class='aw-widget-legal'></a>
+               <div id='awcc1464426505520' class='aw-widget-current' data-locationkey='26971' data-unit='c' data-language='en-us' data-useip='false' data-uid='awcc1464426505520'></div>
+               <script type='text/javascript' src='http://oap.accuweather.com/launch.js'></script> 
+            </div>
+            <div class='well'>
+               <h3>Bornem:</h3>
+               <a href='http://www.accuweather.com/nl/be/bornem/964215/weather-forecast/964215' class='aw-widget-legal'></a>
+               <div id='awcc1464259420008' class='aw-widget-current' data-locationkey='964215' data-unit='c' data-language='en-us' data-useip='false' data-uid='awcc1464259420008'></div>
+               <script type='text/javascript' src='http://oap.accuweather.com/launch.js'></script> 
+            </div>
+         </div>
+         <div class='col-sm-4'>
+            <div class='well'>
+               <h3>Mechelen:</h3>
+               <a href='http://www.accuweather.com/nl/be/mechelen/27047/weather-forecast/27047' class='aw-widget-legal'></a>
+               <div id='awcc1464426662522' class='aw-widget-current' data-locationkey='27047' data-unit='c' data-language='en-us' data-useip='false' data-uid='awcc1464426662522'></div>
+               <script type='text/javascript' src='http://oap.accuweather.com/launch.js'></script> 
+            </div>
+            <div class='well'>
+               <h3>Willebroek:</h3>
+               <a href='http://www.accuweather.com/nl/be/willebroek/954598/weather-forecast/954598' class='aw-widget-legal'></a>
+               <div id='awcc1464426778796' class='aw-widget-current' data-locationkey='954598' data-unit='c' data-language='en-us' data-useip='false' data-uid='awcc1464426778796'></div>
+               <script type='text/javascript' src='http://oap.accuweather.com/launch.js'></script> 
+            </div>
+         </div>
+         <div class='col-sm-4'>
+            <div class='well'>
+               <h3>New York:</h3>
+               <a href='http://www.accuweather.com/nl/us/new-york-ny/10007/weather-forecast/349727' class='aw-widget-legal'></a>
+               <div id='awcc1464426868692' class='aw-widget-current' data-locationkey='349727' data-unit='c' data-language='en-us' data-useip='false' data-uid='awcc1464426868692'></div>
+               <script type='text/javascript' src='http://oap.accuweather.com/launch.js'></script> 
+            </div>
+            <div class='well'>
+               <h3>Cuba:</h3>
+               <a href='http://www.accuweather.com/nl/cu/havana/122438/weather-forecast/122438' class='aw-widget-legal'></a>
+               <div id='awcc1464427011561' class='aw-widget-current' data-locationkey='122438' data-unit='c' data-language='en-us' data-useip='false' data-uid='awcc1464427011561'></div>
+               <script type='text/javascript' src='http://oap.accuweather.com/launch.js'></script> 
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

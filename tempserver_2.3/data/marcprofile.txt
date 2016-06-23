@@ -1,0 +1,120 @@
+<!DOCTYPE html> 
+<html>
+   <head>
+      <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+      <title>Server</title>
+      <link rel='icon' type='image/png' href='https://image.freepik.com/free-icon/ssl-encryption_318-32078.png'>
+      <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' integrity='sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7' crossorigin='anonymous'>
+      <style>
+      .footer {
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          height: 60px;
+          background-color: #f5f5f5;
+      }
+
+      .well {
+          background-color: #ff6600;
+      }
+      </style>
+      <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js'></script> 
+      <script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script> 
+      <script> 
+      function GetClock() {
+   	 	var d = new Date();
+    	var nmonth = d.getMonth(),
+        ndate = d.getDate(),
+        nyear = d.getYear();
+    	if (nyear < 1000) nyear += 1900;
+    	var nhour = d.getHours(),
+        nmin = d.getMinutes(),
+        nsec = d.getSeconds();
+    	if (nmin <= 9) nmin = '0' + nmin
+    	if (nsec <= 9) nsec = '0' + nsec;
+		document.getElementById('clockbox').innerHTML = '' + ndate + '/' + (nmonth + 1) + '/' + nyear + ' ' + nhour + ':' + nmin + ':' + nsec + '';
+	}
+	window.onload = function() {
+	    GetClock();
+	    setInterval(GetClock, 1000);
+	}
+      </script> 
+   </head>
+   <body background="http://www.hddesktopbackgrounds.us/backgrounds-images/1920x1080/m9t97-backgrounds-535728798-1920x1080.jpg">
+      <nav class='navbar navbar-inverse navbar-fixed-top'>
+         <div class='container-fluid'>
+            <div class='navbar-header'> <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='#myNavbar'> <span class='icon-bar'></span> <span class='icon-bar'></span> <span class='icon-bar'></span> </button> <a class='navbar-brand' href='#'><span class='glyphicon glyphicon-cloud'></span></a> </div>
+            <div class='collapse navbar-collapse' id='myNavbar'>
+               <ul class='nav navbar-nav'>
+                  <li><a href='/'>Home</a></li>
+                  <li><a href='temp'>Temperatuursoverzicht</a></li>
+                  <li><a href='omdb'>OMDB</a></li>
+                  <li><a href='weather'>weather</a></li>
+               </ul>
+               <form class='navbar-form navbar-right' role='search'>
+                  <div class='form-group input-group'> <input type='text' class='form-control' placeholder='Search...'> <span class='input-group-btn'> <button class='btn btn-default' type='button'> <span class='glyphicon glyphicon-search'></span> </button> </span> </div>
+               </form>
+               <ul class='nav navbar-nav navbar-right'>
+                  <li class='active'><a href='profile'><span class='glyphicon glyphicon-user'></span> My Account</a></li>
+                  <li><a href='/login?disconnect=yes'>Afmelden</a></li>
+               </ul>
+            </div>
+         </div>
+      </nav>
+      <br><br><br> 
+      <div class='container text-center'>
+            <h1 class="page-header"><span style="color:white">Edit Profile</span></h1>
+            <div class="row well">
+               <div class="col-md-4 col-sm-6 col-xs-12">
+                  <div class="text-center">
+                     <img src="http://graph.facebook.com/1046163071/picture?type=large&width=300&height=300" class="avatar img-circle img-thumbnail" alt="avatar">
+                  </div>
+               </div>
+               <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
+                  <h3>Personal info</h3>
+                  <form class="form-horizontal" role="form" method="/">
+                     <div class="form-group">
+                        <label class="col-lg-3 control-label">First name:</label>
+                        <div class="col-lg-8">
+                           <input name ="voornaam" class="form-control" value="Marc" type="text">
+                        </div>
+                     </div>
+                     <div class="form-group">
+                        <label class="col-lg-3 control-label">Last name:</label>
+                        <div class="col-lg-8">
+                           <input name ="achternaam" class="form-control" value="Geudens" type="text">
+                        </div>
+                     </div>
+                     <div class="form-group">
+                        <label class="col-lg-3 control-label">Email:</label>
+                        <div class="col-lg-8">
+                           <input name ="email" class="form-control" value="marc.geudens@hotmail.be" type="text">
+                        </div>
+                     </div>
+                     <div class="form-group">
+                        <label class="col-md-3 control-label">Username:</label>
+                        <div class="col-md-8">
+                           <input name ="gebruikersnaam" class="form-control" value="" type="text">
+                        </div>
+                     </div>
+                     <div class="form-group">
+                        <label class="col-md-3 control-label">Password:</label>
+                        <div class="col-md-8">
+                           <input name ="wachtwoord" class="form-control" value="Geudens" type="password">
+                        </div>
+                     </div>
+                     <div class="form-group">
+                        <label class="col-md-3 control-label"></label>
+                        <div class="col-md-8">
+                           <input class="btn btn-primary" value="Save Changes" type="submit">
+                           <span></span>
+                           <input class="btn btn-default" value="Cancel" type="reset">
+                        </div>
+                     </div>
+                  </form>
+               </div>
+            
+         </div>
+      </div>
+   </body>
+</html>
