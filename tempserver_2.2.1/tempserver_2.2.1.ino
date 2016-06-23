@@ -42,8 +42,8 @@ const char* login2 = {"<div class=\"col-md-12\">\n </div>\n </div>\n </div>\n </
 const char* graph1 = {"<script>\n google.charts.load('current', {packages: ['corechart', 'line']});\n google.charts.setOnLoadCallback(drawBackgroundColor);\n function drawBackgroundColor() {\n var data = new google.visualization.DataTable();\n data.addColumn('number', 'time');\n data.addColumn('number', 'graden celsius');\n data.addRows([\n"};
 const char* graph2 = {"]);\n var options = {\n hAxis: {title: 'Time'},vAxis: {title: 'Temperature'},backgroundColor: '#0ff0ff','width':300,'height':300};\n var chart = new google.visualization.LineChart(document.getElementById('chart_div'));\n chart.draw(data, options);}\n </script>\n"};
 
-const char* ssid = "telenet-69233";
-const char* password = "ZGnUXZchGPWF";
+const char* ssid = "";
+const char* password = "";
 
 bool is_authentified() {
   if (server.hasHeader("Cookie")) {
