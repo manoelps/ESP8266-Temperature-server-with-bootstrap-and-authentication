@@ -102,8 +102,8 @@ void setup(void) {
   SPIFFS.remove("/tempbuffer.txt");
   WiFi.config(ip, gw, sn);
 
-  //WiFi.begin("telenet-CC217", "9Hu4MX3S6821");
-  WiFi.begin("telenet-69233", "ZGnUXZchGPWF");
+
+  WiFi.begin("SSID", "PSK");
   Serial.println("");
 
   while (WiFi.status() != WL_CONNECTED) {
